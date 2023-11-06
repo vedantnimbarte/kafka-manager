@@ -40,7 +40,6 @@ kafka-service/
 │ ├── app.ts
 ```
 
-
 - `config/kafka.config.ts`: Kafka configuration settings.
 - `producer/KafkaProducer.ts`: Kafka producer class.
 - `consumer/KafkaConsumer.ts`: Kafka consumer class.
@@ -62,7 +61,6 @@ cd kafka-service
 npm install
 ```
 
-
 ## Usage
 
 To use the Kafka producer, import the `KafkaProducer` class and call the `send` method to send a message:
@@ -71,9 +69,10 @@ To use the Kafka producer, import the `KafkaProducer` class and call the `send` 
 import KafkaProducer from './producer/KafkaProducer';
 
 const producer = KafkaProducer.getInstance();
-producer.send('Hello, Kafka!')
-.then(() => console.log('Message sent'))
-.catch((error) => console.error('Error sending message:', error));
+producer
+  .send('Hello, Kafka!')
+  .then(() => console.log('Message sent'))
+  .catch((error) => console.error('Error sending message:', error));
 ```
 
 The Kafka consumer is started automatically when you run the application.
