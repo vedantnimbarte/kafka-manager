@@ -2,7 +2,7 @@
   "name": "kafka-manager",
   "description": " A Kafka service implemented in Node.js with TypeScript.",
   "version": "1.0.0",
-  "main": ".eslintrc.js",
+  "main": "dist/app.js",
   "scripts": {
     "start": "npm run build && node ./build/index.js",
     "start:dev": "nodemon",

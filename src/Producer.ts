@@ -1,10 +1,11 @@
-import { Producer, Kafka, ProducerRecord } from 'kafkajs';
+import { Producer, Kafka, ProducerRecord, Message } from 'kafkajs';
 import config from './kafka.config';
+import KafkaMessage from './models/KafkaMessage';
 
 class KafkaProducer {
-  private producer: Producer;
+  private readonly producer: Producer;
 
-  private constructor() {
+  constructor() {
     const kafka = new Kafka({
       clientId: config.kafka.clientId,
       brokers: config.kafka.brokers,
@@ -12,11 +13,11 @@ class KafkaProducer {
     this.producer = kafka.producer();
   }
 
-  async send(message: string): Promise<void> {
+  async send(message: KafkaMessage, topic: string): Promise<void> {
     await this.producer.connect();
     const producerRecord: ProducerRecord = {
-      topic: config.kafka.topic,
-      messages: [{ value: message }],
+      topic: topic,
+      messages: [{ value: JSON.stringify(message) }],
     };
     await this.producer.send(producerRecord);
     await this.producer.disconnect();
