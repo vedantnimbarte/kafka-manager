@@ -1,6 +1,6 @@
-import { Producer, Kafka, ProducerRecord, Message } from 'kafkajs';
-import config from './kafka.config';
-import KafkaMessage from './models/KafkaMessage';
+import { Producer, Kafka, ProducerRecord } from 'kafkajs';
+import config from '../config/kafka.config';
+import KafkaMessage from '../models/KafkaMessage';
 
 class KafkaProducer {
   private readonly producer: Producer;

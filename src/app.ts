@@ -1,6 +1,6 @@
-import KafkaProducer from './Producer';
-import KafkaConsumer from './Consumer';
-import config from './kafka.config';
+import KafkaProducer from './producer/Producer';
+import KafkaConsumer from './consumer/Consumer';
+import config from './config/kafka.config';
 
 async function main() {
   const producer = new KafkaProducer();

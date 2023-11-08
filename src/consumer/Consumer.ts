@@ -1,6 +1,6 @@
 import { Kafka, Consumer } from 'kafkajs';
-import config from './kafka.config';
-import KafkaMessage from './models/KafkaMessage';
+import config from '../config/kafka.config';
+import KafkaMessage from '../models/KafkaMessage';
 
 class kafkaConsumer {
   private readonly consumer: Consumer;
